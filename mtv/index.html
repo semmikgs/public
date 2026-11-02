@@ -152,7 +152,14 @@
   .spiel .teams .wir { font-weight: 800; color: var(--rot); }
   .spiel .halle { font-size: 13px; color: var(--leise); grid-column: 1; }
   .spiel .halle a { color: var(--leise); }
-  .spiel .rechts { grid-column: 2; grid-row: 1 / span 3; align-self: center; text-align: right; }
+  .spiel .rechts { grid-column: 2; grid-row: 1 / span 3; align-self: center; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .kal-icon {
+    display: inline-flex; align-items: center; gap: 4px; text-decoration: none;
+    font-size: 12px; font-weight: 700; color: var(--rot);
+    border: 1.5px solid var(--rot); border-radius: 8px; padding: 4px 7px; background: var(--weiss);
+  }
+  .kal-icon svg { width: 15px; height: 15px; }
+  .abo { display: block; text-align: center; padding: 12px 16px 16px; border-top: 1px solid var(--linie); font-size: 14px; font-weight: 700; color: var(--rot); text-decoration: none; }
   .erg {
     display: inline-block; min-width: 58px; text-align: center; font-weight: 800; font-size: 16px;
     border-radius: 8px; padding: 5px 8px; background: #eef0f4; font-variant-numeric: tabular-nums;
@@ -269,6 +276,10 @@ function teamHtml(name) {
   return istWir(name) ? '<span class="wir">' + esc(name) + "</span>" : esc(name);
 }
 
+const KAL_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>';
+function kalUrl(s) { return "kalender/spiel-" + encodeURIComponent(s.nr) + ".ics"; }
+const ABO_URL = new URL("kalender/alle.ics", location.href).href;
+
 function ics(s) {
   const pad = n => String(n).padStart(2, "0");
   const f = d => d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + "T" + pad(d.getHours()) + pad(d.getMinutes()) + "00";
@@ -307,7 +318,7 @@ function zeichne(hinweis) {
       '<div class="countdown">' + tageBis(naechstes.zeitpunkt) + ' · <span class="badge ' + (heim ? "" : "aus") + '">' + (heim ? "Heimspiel" : "Auswärts") + "</span></div>" +
       '<div class="paarung">' + heimGast(naechstes) + "</div>" +
       '<a class="ort" href="' + h.maps + '" target="_blank" rel="noopener"><div class="pin">📍</div><div><div class="name">' + esc(kurzHalle(h.name)) + "</div>" + (h.adresse ? '<div class="adr">' + esc(h.adresse) + "</div>" : "") + "</div></a>" +
-      '<div class="knoepfe"><a class="knopf" href="' + h.maps + '" target="_blank" rel="noopener">Route</a><button class="knopf hell" id="kal">In Kalender</button></div>' +
+      '<div class="knoepfe"><a class="knopf" href="' + h.maps + '" target="_blank" rel="noopener">Route</a><a class="knopf hell" href="' + kalUrl(naechstes) + '">In Kalender</a></div>' +
       "</div></section>";
   } else {
     html += '<section class="karte"><h2>Nächstes Spiel</h2><div class="leer">Aktuell kein weiteres Spiel angesetzt.</div></section>';
@@ -348,11 +359,12 @@ function zeichne(hinweis) {
       const unser = istWir(s.heim) || istWir(s.gast);
       const rechts = s.erg ? '<span class="erg ' + (unser ? wertung(s) : "") + '">' + esc(s.erg) + "</span>" : '<span class="badge ' + (istWir(s.heim) ? "" : "aus") + '">' + (unser ? (istWir(s.heim) ? "Heim" : "Auswärts") : "") + "</span>";
       return '<div class="spiel"><div class="datum"><b>' + WOCHENTAG[d.getDay()] + ", " + esc(s.datum) + "</b> · Anpfiff " + esc(s.zeit) + " Uhr</div>" +
-        '<div class="rechts">' + (unser || s.erg ? rechts : "") + "</div>" +
+        '<div class="rechts">' + (unser || s.erg ? rechts : "") + (unser && !s.erg ? '<a class="kal-icon" href="' + kalUrl(s) + '" aria-label="In Kalender eintragen">' + KAL_SVG + "Kalender</a>" : "") + "</div>" +
         '<div class="teams">' + heimGast(s) + "</div>" +
         '<div class="halle">📍 <a href="' + h.maps + '" target="_blank" rel="noopener">' + esc(h.name) + "</a></div></div>";
     }).join("");
   }
+  html += '<a class="abo" id="abo" href="kalender/alle.ics">📅 Alle MTV-Spiele als Kalender abonnieren</a>';
   html += "</section>";
 
   html += '<div class="status">Letzte Änderung bei nuLiga: ' + new Date(daten.stand).toLocaleString("de-DE", { dateStyle: "short", timeStyle: "short" }) + " Uhr<br>wird alle 30 Minuten automatisch abgeglichen</div>";
@@ -362,8 +374,8 @@ function zeichne(hinweis) {
   app.querySelectorAll("[data-r]").forEach(b => b.onclick = () => { ansicht.reiter = b.dataset.r; zeichne(hinweis); });
   const alle = app.querySelector("[data-alle]");
   if (alle) alle.onclick = () => { ansicht.alle = !ansicht.alle; zeichne(hinweis); };
-  const kal = document.getElementById("kal");
-  if (kal && naechstes) kal.onclick = () => ics(naechstes);
+  const abo = document.getElementById("abo");
+  if (abo) abo.onclick = e => { e.preventDefault(); location.href = ABO_URL.replace(/^https?:/, "webcal:"); };
 }
 
 async function laden() {

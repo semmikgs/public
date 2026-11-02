@@ -42,10 +42,10 @@ jobs:
       - name: Änderungen committen
         if: steps.fenster.outputs.los == 'ja'
         run: |
-          if git diff --quiet -- mtv/daten.json && [ -z "$(git status --porcelain mtv/daten.json)" ]; then echo "Keine Änderung"; exit 0; fi
+          if [ -z "$(git status --porcelain mtv)" ]; then echo "Keine Änderung"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          git add mtv/daten.json
+          git add -A mtv
           git commit -m "MTV-Daten aktualisiert"
           git pull --rebase origin main
           git push

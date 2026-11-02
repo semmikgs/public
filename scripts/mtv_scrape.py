@@ -120,6 +120,74 @@ def halle(loc):
     return {"name": name, "adresse": adresse}
 
 
+def ics_text(t):
+    return t.replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
+
+
+def kurz_halle(name):
+    teil = name.split(",", 1)[1].strip() if "," in name else name
+    return re.sub(r"\bSH\b", "Sporthalle", teil) or name
+
+
+def kalender(daten):
+    """Schreibt mtv/kalender/spiel-<nr>.ics je MTV-Spiel und mtv/kalender/alle.ics (abonnierbar)."""
+    ordner = os.path.join(ROOT, "mtv", "kalender")
+    os.makedirs(ordner, exist_ok=True)
+    stamp = re.sub(r"[-:]", "", daten["stand"][:19]) + "Z"
+    events = {}
+    for sp in daten["spiele"]:
+        if not (wir(sp["heim"]) or wir(sp["gast"])):
+            continue
+        t, m, j = map(int, sp["datum"].split("."))
+        h, mi = map(int, sp["zeit"].split(":"))
+        start = datetime.datetime(j, m, t, h, mi)
+        ende = start + datetime.timedelta(minutes=90)
+        hal = daten["hallen"].get(sp["location"], {})
+        name = kurz_halle(hal.get("name", "")) or f"Halle {sp['hallenNr']}"
+        ort = name + (", " + hal["adresse"] if hal.get("adresse") else "")
+        titel = f"Handball mD: {sp['heim']} – {sp['gast']}"
+        if sp["erg"]:
+            titel += f" ({sp['erg']})"
+        beschr = f"Anpfiff {sp['zeit']} Uhr\nRegionsliga D Süd, Spiel {sp['nr']}\nInfos: https://semmikgs.github.io/public/mtv/"
+        f = "%Y%m%dT%H%M%S"
+        events[sp["nr"]] = [
+            "BEGIN:VEVENT",
+            f"UID:mtv-md-2627-spiel-{sp['nr']}@semmikgs.github.io",
+            f"DTSTAMP:{stamp}",
+            f"DTSTART;TZID=Europe/Berlin:{start.strftime(f)}",
+            f"DTEND;TZID=Europe/Berlin:{ende.strftime(f)}",
+            f"SUMMARY:{ics_text(titel)}",
+            f"LOCATION:{ics_text(ort)}",
+            f"DESCRIPTION:{ics_text(beschr)}",
+            "END:VEVENT",
+        ]
+    tz = ["BEGIN:VTIMEZONE", "TZID:Europe/Berlin",
+          "BEGIN:DAYLIGHT", "TZOFFSETFROM:+0100", "TZOFFSETTO:+0200", "TZNAME:CEST",
+          "DTSTART:19700329T020000", "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU", "END:DAYLIGHT",
+          "BEGIN:STANDARD", "TZOFFSETFROM:+0200", "TZOFFSETTO:+0100", "TZNAME:CET",
+          "DTSTART:19701025T030000", "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU", "END:STANDARD",
+          "END:VTIMEZONE"]
+
+    def datei(name, evs, titel):
+        zeilen = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//MTV Schwarmstedt mD//DE",
+                  "CALSCALE:GREGORIAN", "METHOD:PUBLISH", f"X-WR-CALNAME:{titel}",
+                  "X-WR-TIMEZONE:Europe/Berlin", "REFRESH-INTERVAL;VALUE=DURATION:PT6H"] + tz
+        for e in evs:
+            zeilen += e
+        zeilen.append("END:VCALENDAR")
+        with open(os.path.join(ordner, name), "w", encoding="utf-8", newline="") as fh:
+            fh.write("\r\n".join(zeilen) + "\r\n")
+
+    for nr, ev in events.items():
+        datei(f"spiel-{nr}.ics", [ev], "MTV mD")
+    datei("alle.ics", list(events.values()), "MTV Schwarmstedt mD")
+    for alt in os.listdir(ordner):
+        m = re.fullmatch(r"spiel-(.+)\.ics", alt)
+        if m and m.group(1) not in events:
+            os.remove(os.path.join(ordner, alt))
+    print(f"{len(events)} Kalenderdateien geschrieben.")
+
+
 def main():
     alt = {}
     if os.path.exists(ZIEL):
@@ -144,11 +212,14 @@ def main():
     neu = {"tabelle": tab, "spiele": plan, "hallen": hallen}
     if all(alt.get(k) == v for k, v in neu.items()):
         print("Keine Änderung.")
+        if not os.path.exists(os.path.join(ROOT, "mtv", "kalender", "alle.ics")):
+            kalender(alt)
         return
     neu["stand"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
     with open(ZIEL, "w", encoding="utf-8") as f:
         json.dump(neu, f, ensure_ascii=False, indent=1)
     print("daten.json aktualisiert.")
+    kalender(neu)
 
 
 if __name__ == "__main__":

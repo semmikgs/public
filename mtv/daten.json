@@ -1,0 +1,572 @@
+{
+ "tabelle": [
+  {
+   "rang": 1,
+   "team": "MTV Schwarmstedt",
+   "spiele": "1",
+   "s": "1",
+   "u": "0",
+   "n": "0",
+   "tore": "19:9",
+   "diff": "+10",
+   "punkte": "2:0"
+  },
+  {
+   "rang": 2,
+   "team": "TSV Wietzendorf",
+   "spiele": "1",
+   "s": "1",
+   "u": "0",
+   "n": "0",
+   "tore": "24:15",
+   "diff": "+9",
+   "punkte": "2:0"
+  },
+  {
+   "rang": 3,
+   "team": "JSG Örtzetal",
+   "spiele": "1",
+   "s": "1",
+   "u": "0",
+   "n": "0",
+   "tore": "18:16",
+   "diff": "+2",
+   "punkte": "2:0"
+  },
+  {
+   "rang": 4,
+   "team": "MTV Soltau",
+   "spiele": "0",
+   "s": "0",
+   "u": "0",
+   "n": "0",
+   "tore": "0:0",
+   "diff": "0",
+   "punkte": "0:0"
+  },
+  {
+   "rang": 5,
+   "team": "TV Jahn Schneverdingen gem. II",
+   "spiele": "1",
+   "s": "0",
+   "u": "0",
+   "n": "1",
+   "tore": "16:18",
+   "diff": "-2",
+   "punkte": "0:2"
+  },
+  {
+   "rang": 6,
+   "team": "HSG Lohheide",
+   "spiele": "1",
+   "s": "0",
+   "u": "0",
+   "n": "1",
+   "tore": "15:24",
+   "diff": "-9",
+   "punkte": "0:2"
+  },
+  {
+   "rang": 7,
+   "team": "TV Jahn Schneverdingen",
+   "spiele": "1",
+   "s": "0",
+   "u": "0",
+   "n": "1",
+   "tore": "9:19",
+   "diff": "-10",
+   "punkte": "0:2"
+  }
+ ],
+ "spiele": [
+  {
+   "datum": "01.11.2026",
+   "zeit": "13:00",
+   "nr": "1",
+   "hallenNr": "607102",
+   "hallenTitel": "",
+   "location": "6365",
+   "heim": "HSG Lohheide",
+   "gast": "TSV Wietzendorf",
+   "erg": "15:24"
+  },
+  {
+   "datum": "01.11.2026",
+   "zeit": "13:00",
+   "nr": "3",
+   "hallenNr": "607110",
+   "hallenTitel": "",
+   "location": "6373",
+   "heim": "TV Jahn Schneverdingen gem. II",
+   "gast": "JSG Örtzetal",
+   "erg": "16:18"
+  },
+  {
+   "datum": "01.11.2026",
+   "zeit": "14:30",
+   "nr": "2",
+   "hallenNr": "607110",
+   "hallenTitel": "",
+   "location": "6373",
+   "heim": "TV Jahn Schneverdingen",
+   "gast": "MTV Schwarmstedt",
+   "erg": "9:19"
+  },
+  {
+   "datum": "08.11.2026",
+   "zeit": "11:30",
+   "nr": "5",
+   "hallenNr": "601186",
+   "hallenTitel": "",
+   "location": "6779",
+   "heim": "JSG Örtzetal",
+   "gast": "TV Jahn Schneverdingen",
+   "erg": ""
+  },
+  {
+   "datum": "08.11.2026",
+   "zeit": "12:45",
+   "nr": "4",
+   "hallenNr": "607111",
+   "hallenTitel": "",
+   "location": "6374",
+   "heim": "MTV Schwarmstedt",
+   "gast": "HSG Lohheide",
+   "erg": ""
+  },
+  {
+   "datum": "08.11.2026",
+   "zeit": "15:15",
+   "nr": "6",
+   "hallenNr": "607113",
+   "hallenTitel": "",
+   "location": "6376",
+   "heim": "MTV Soltau",
+   "gast": "TV Jahn Schneverdingen gem. II",
+   "erg": ""
+  },
+  {
+   "datum": "22.11.2026",
+   "zeit": "13:00",
+   "nr": "9",
+   "hallenNr": "607109",
+   "hallenTitel": "",
+   "location": "6372",
+   "heim": "TV Jahn Schneverdingen",
+   "gast": "MTV Soltau",
+   "erg": ""
+  },
+  {
+   "datum": "22.11.2026",
+   "zeit": "14:00",
+   "nr": "7",
+   "hallenNr": "607102",
+   "hallenTitel": "",
+   "location": "6365",
+   "heim": "HSG Lohheide",
+   "gast": "JSG Örtzetal",
+   "erg": ""
+  },
+  {
+   "datum": "22.11.2026",
+   "zeit": "15:30",
+   "nr": "8",
+   "hallenNr": "607116",
+   "hallenTitel": "",
+   "location": "6379",
+   "heim": "TSV Wietzendorf",
+   "gast": "MTV Schwarmstedt",
+   "erg": ""
+  },
+  {
+   "datum": "28.11.2026",
+   "zeit": "15:15",
+   "nr": "10",
+   "hallenNr": "607113",
+   "hallenTitel": "",
+   "location": "6376",
+   "heim": "MTV Soltau",
+   "gast": "HSG Lohheide",
+   "erg": ""
+  },
+  {
+   "datum": "28.11.2026",
+   "zeit": "15:45",
+   "nr": "12",
+   "hallenNr": "607109",
+   "hallenTitel": "",
+   "location": "6372",
+   "heim": "TV Jahn Schneverdingen gem. II",
+   "gast": "TV Jahn Schneverdingen",
+   "erg": ""
+  },
+  {
+   "datum": "29.11.2026",
+   "zeit": "11:15",
+   "nr": "11",
+   "hallenNr": "601186",
+   "hallenTitel": "",
+   "location": "6779",
+   "heim": "JSG Örtzetal",
+   "gast": "TSV Wietzendorf",
+   "erg": ""
+  },
+  {
+   "datum": "12.12.2026",
+   "zeit": "12:15",
+   "nr": "14",
+   "hallenNr": "607116",
+   "hallenTitel": "",
+   "location": "6379",
+   "heim": "TSV Wietzendorf",
+   "gast": "MTV Soltau",
+   "erg": ""
+  },
+  {
+   "datum": "13.12.2026",
+   "zeit": "13:00",
+   "nr": "15",
+   "hallenNr": "607111",
+   "hallenTitel": "",
+   "location": "6374",
+   "heim": "MTV Schwarmstedt",
+   "gast": "JSG Örtzetal",
+   "erg": ""
+  },
+  {
+   "datum": "13.12.2026",
+   "zeit": "16:00",
+   "nr": "13",
+   "hallenNr": "607102",
+   "hallenTitel": "",
+   "location": "6365",
+   "heim": "HSG Lohheide",
+   "gast": "TV Jahn Schneverdingen gem. II",
+   "erg": ""
+  },
+  {
+   "datum": "23.01.2027",
+   "zeit": "16:30",
+   "nr": "17",
+   "hallenNr": "607110",
+   "hallenTitel": "",
+   "location": "6373",
+   "heim": "TV Jahn Schneverdingen gem. II",
+   "gast": "TSV Wietzendorf",
+   "erg": ""
+  },
+  {
+   "datum": "23.01.2027",
+   "zeit": "17:45",
+   "nr": "16",
+   "hallenNr": "607110",
+   "hallenTitel": "",
+   "location": "6373",
+   "heim": "TV Jahn Schneverdingen",
+   "gast": "HSG Lohheide",
+   "erg": ""
+  },
+  {
+   "datum": "24.01.2027",
+   "zeit": "11:45",
+   "nr": "18",
+   "hallenNr": "607113",
+   "hallenTitel": "",
+   "location": "6376",
+   "heim": "MTV Soltau",
+   "gast": "MTV Schwarmstedt",
+   "erg": ""
+  },
+  {
+   "datum": "06.02.2027",
+   "zeit": "11:30",
+   "nr": "21",
+   "hallenNr": "601134",
+   "hallenTitel": "",
+   "location": "6774",
+   "heim": "JSG Örtzetal",
+   "gast": "MTV Soltau",
+   "erg": ""
+  },
+  {
+   "datum": "06.02.2027",
+   "zeit": "12:00",
+   "nr": "20",
+   "hallenNr": "607111",
+   "hallenTitel": "",
+   "location": "6374",
+   "heim": "MTV Schwarmstedt",
+   "gast": "TV Jahn Schneverdingen gem. II",
+   "erg": ""
+  },
+  {
+   "datum": "07.02.2027",
+   "zeit": "11:30",
+   "nr": "19",
+   "hallenNr": "607116",
+   "hallenTitel": "",
+   "location": "6379",
+   "heim": "TSV Wietzendorf",
+   "gast": "TV Jahn Schneverdingen",
+   "erg": ""
+  },
+  {
+   "datum": "13.02.2027",
+   "zeit": "10:30",
+   "nr": "24",
+   "hallenNr": "601134",
+   "hallenTitel": "",
+   "location": "6774",
+   "heim": "JSG Örtzetal",
+   "gast": "TV Jahn Schneverdingen gem. II",
+   "erg": ""
+  },
+  {
+   "datum": "13.02.2027",
+   "zeit": "16:00",
+   "nr": "22",
+   "hallenNr": "607116",
+   "hallenTitel": "",
+   "location": "6379",
+   "heim": "TSV Wietzendorf",
+   "gast": "HSG Lohheide",
+   "erg": ""
+  },
+  {
+   "datum": "13.02.2027",
+   "zeit": "16:15",
+   "nr": "23",
+   "hallenNr": "607111",
+   "hallenTitel": "",
+   "location": "6374",
+   "heim": "MTV Schwarmstedt",
+   "gast": "TV Jahn Schneverdingen",
+   "erg": ""
+  },
+  {
+   "datum": "20.02.2027",
+   "zeit": "13:00",
+   "nr": "26",
+   "hallenNr": "607110",
+   "hallenTitel": "",
+   "location": "6373",
+   "heim": "TV Jahn Schneverdingen",
+   "gast": "JSG Örtzetal",
+   "erg": ""
+  },
+  {
+   "datum": "20.02.2027",
+   "zeit": "14:30",
+   "nr": "27",
+   "hallenNr": "607110",
+   "hallenTitel": "",
+   "location": "6373",
+   "heim": "TV Jahn Schneverdingen gem. II",
+   "gast": "MTV Soltau",
+   "erg": ""
+  },
+  {
+   "datum": "20.02.2027",
+   "zeit": "15:00",
+   "nr": "25",
+   "hallenNr": "607102",
+   "hallenTitel": "",
+   "location": "6365",
+   "heim": "HSG Lohheide",
+   "gast": "MTV Schwarmstedt",
+   "erg": ""
+  },
+  {
+   "datum": "06.03.2027",
+   "zeit": "11:30",
+   "nr": "28",
+   "hallenNr": "601134",
+   "hallenTitel": "",
+   "location": "6774",
+   "heim": "JSG Örtzetal",
+   "gast": "HSG Lohheide",
+   "erg": ""
+  },
+  {
+   "datum": "07.03.2027",
+   "zeit": "10:00",
+   "nr": "30",
+   "hallenNr": "607113",
+   "hallenTitel": "",
+   "location": "6376",
+   "heim": "MTV Soltau",
+   "gast": "TV Jahn Schneverdingen",
+   "erg": ""
+  },
+  {
+   "datum": "07.03.2027",
+   "zeit": "14:30",
+   "nr": "29",
+   "hallenNr": "607111",
+   "hallenTitel": "",
+   "location": "6374",
+   "heim": "MTV Schwarmstedt",
+   "gast": "TSV Wietzendorf",
+   "erg": ""
+  },
+  {
+   "datum": "13.03.2027",
+   "zeit": "13:30",
+   "nr": "33",
+   "hallenNr": "607109",
+   "hallenTitel": "",
+   "location": "6372",
+   "heim": "TV Jahn Schneverdingen",
+   "gast": "TV Jahn Schneverdingen gem. II",
+   "erg": ""
+  },
+  {
+   "datum": "13.03.2027",
+   "zeit": "14:00",
+   "nr": "32",
+   "hallenNr": "607116",
+   "hallenTitel": "",
+   "location": "6379",
+   "heim": "TSV Wietzendorf",
+   "gast": "JSG Örtzetal",
+   "erg": ""
+  },
+  {
+   "datum": "14.03.2027",
+   "zeit": "16:00",
+   "nr": "31",
+   "hallenNr": "607102",
+   "hallenTitel": "",
+   "location": "6365",
+   "heim": "HSG Lohheide",
+   "gast": "MTV Soltau",
+   "erg": ""
+  },
+  {
+   "datum": "10.04.2027",
+   "zeit": "13:00",
+   "nr": "34",
+   "hallenNr": "607109",
+   "hallenTitel": "",
+   "location": "6372",
+   "heim": "TV Jahn Schneverdingen gem. II",
+   "gast": "HSG Lohheide",
+   "erg": ""
+  },
+  {
+   "datum": "10.04.2027",
+   "zeit": "15:00",
+   "nr": "36",
+   "hallenNr": "601134",
+   "hallenTitel": "",
+   "location": "6774",
+   "heim": "JSG Örtzetal",
+   "gast": "MTV Schwarmstedt",
+   "erg": ""
+  },
+  {
+   "datum": "11.04.2027",
+   "zeit": "13:30",
+   "nr": "35",
+   "hallenNr": "607113",
+   "hallenTitel": "",
+   "location": "6376",
+   "heim": "MTV Soltau",
+   "gast": "TSV Wietzendorf",
+   "erg": ""
+  },
+  {
+   "datum": "18.04.2027",
+   "zeit": "13:15",
+   "nr": "39",
+   "hallenNr": "607111",
+   "hallenTitel": "",
+   "location": "6374",
+   "heim": "MTV Schwarmstedt",
+   "gast": "MTV Soltau",
+   "erg": ""
+  },
+  {
+   "datum": "18.04.2027",
+   "zeit": "14:00",
+   "nr": "37",
+   "hallenNr": "607102",
+   "hallenTitel": "",
+   "location": "6365",
+   "heim": "HSG Lohheide",
+   "gast": "TV Jahn Schneverdingen",
+   "erg": ""
+  },
+  {
+   "datum": "18.04.2027",
+   "zeit": "18:00",
+   "nr": "38",
+   "hallenNr": "607116",
+   "hallenTitel": "",
+   "location": "6379",
+   "heim": "TSV Wietzendorf",
+   "gast": "TV Jahn Schneverdingen gem. II",
+   "erg": ""
+  },
+  {
+   "datum": "24.04.2027",
+   "zeit": "11:30",
+   "nr": "41",
+   "hallenNr": "607110",
+   "hallenTitel": "",
+   "location": "6373",
+   "heim": "TV Jahn Schneverdingen gem. II",
+   "gast": "MTV Schwarmstedt",
+   "erg": ""
+  },
+  {
+   "datum": "25.04.2027",
+   "zeit": "11:45",
+   "nr": "42",
+   "hallenNr": "607113",
+   "hallenTitel": "",
+   "location": "6376",
+   "heim": "MTV Soltau",
+   "gast": "JSG Örtzetal",
+   "erg": ""
+  },
+  {
+   "datum": "25.04.2027",
+   "zeit": "12:00",
+   "nr": "40",
+   "hallenNr": "607109",
+   "hallenTitel": "",
+   "location": "6372",
+   "heim": "TV Jahn Schneverdingen",
+   "gast": "TSV Wietzendorf",
+   "erg": ""
+  }
+ ],
+ "hallen": {
+  "6365": {
+   "name": "Bomlitz, SH Schulzentrum",
+   "adresse": "Am Hoop 15, 29699 Bomlitz"
+  },
+  "6373": {
+   "name": "Schneverdingen, SH Harburger Str.",
+   "adresse": "Harburger Straße 28, 29640 Schneverdingen"
+  },
+  "6374": {
+   "name": "Schwarmstedt, Wilhelm-Röpke-Schule",
+   "adresse": "Am Schloonberg 9, 29690 Schwarmstedt"
+  },
+  "6376": {
+   "name": "Soltau, SH RS",
+   "adresse": "Stubbendorffweg 2, 29614 Soltau"
+  },
+  "6379": {
+   "name": "Wietzendorf, SH",
+   "adresse": "Kampstraße, 29649 Wietzendorf"
+  },
+  "6774": {
+   "name": "Hermannsburg, SH Oertzetal",
+   "adresse": "Lutterweg, 29320 Hermannsburg"
+  }
+ },
+ "stand": "2026-11-01T20:28:07+00:00"
+}

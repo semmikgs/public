@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#c8102e">
+<title>MTV mD – Spielplan</title>
+<style>
+  :root {
+    --rot: #c8102e;
+    --rot-dunkel: #9c0b23;
+    --rot-hell: #fdecef;
+    --weiss: #ffffff;
+    --grund: #f4f4f6;
+    --tinte: #1b1c20;
+    --leise: #6b6e78;
+    --linie: #e3e4e8;
+    --sieg: #1f8a4c;
+    --sieg-hell: #e4f5ea;
+    --remis: #b7791f;
+    --remis-hell: #fbf1de;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--grund);
+    color: var(--tinte);
+    font-size: 16px;
+    line-height: 1.4;
+    -webkit-text-size-adjust: 100%;
+  }
+  header {
+    background: var(--rot);
+    color: var(--weiss);
+    padding: calc(8px + env(safe-area-inset-top)) 16px 14px;
+    position: relative;
+  }
+  header::after { /* weißer Streifen wie Trikot */
+    content: ""; position: absolute; left: 0; right: 0; bottom: 5px;
+    height: 3px; background: var(--weiss); opacity: .9;
+  }
+  .kopf { max-width: 640px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+  .wappen {
+    width: 36px; height: 36px; border-radius: 50%; flex: none;
+    background: var(--weiss); color: var(--rot);
+    display: grid; place-items: center; font-weight: 900; font-size: 12px; letter-spacing: -.5px;
+    border: 2px solid var(--rot-dunkel);
+  }
+  .kopf h1 { margin: 0; font-size: 17px; line-height: 1.15; }
+  .kopf .sub { font-size: 12px; opacity: .9; }
+  .neu {
+    margin-left: auto; flex: none;
+    background: rgba(255,255,255,.15); color: var(--weiss);
+    border: 1px solid rgba(255,255,255,.5); border-radius: 999px;
+    padding: 5px 11px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+  }
+  .neu:active { background: rgba(255,255,255,.3); }
+
+  main { max-width: 640px; margin: 12px auto 0; padding: 0 12px calc(30px + env(safe-area-inset-bottom)); position: relative; }
+  .karte {
+    background: var(--weiss); border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0,0,0,.08); margin-bottom: 14px; overflow: hidden;
+  }
+  .karte > h2 {
+    margin: 0; padding: 12px 16px 8px; font-size: 13px; text-transform: uppercase;
+    letter-spacing: .06em; color: var(--rot); font-weight: 800;
+  }
+  .status { font-size: 13px; color: var(--leise); text-align: center; margin: 4px 0 12px; }
+  .status.warn { color: var(--rot-dunkel); }
+
+  /* Nächstes Spiel */
+  .naechstes { border-top: 5px solid var(--rot); }
+  .naechstes .inhalt { padding: 4px 16px 16px; }
+  .wann { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .wann { flex-wrap: nowrap; white-space: nowrap; }
+  .wann .tag { font-size: 19px; font-weight: 800; }
+  .wann .zeit { font-size: 19px; font-weight: 800; color: var(--rot); }
+  .countdown { font-size: 13px; color: var(--leise); margin-top: 2px; }
+  .paarung { margin: 12px 0; font-size: 17px; }
+  .paarung .hg { gap: 3px 10px; }
+  .paarung .team { font-weight: 700; font-size: 16px; line-height: 1.2; }
+  .paarung .team.wir { color: var(--rot); }
+  .paarung .vs { font-size: 13px; color: var(--leise); font-weight: 700; }
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700; border-radius: 999px;
+    padding: 3px 10px; background: var(--rot-hell); color: var(--rot);
+  }
+  .badge.aus { background: #eef0f4; color: var(--tinte); }
+  .ort {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: var(--grund); border-radius: 10px; padding: 10px 12px;
+  }
+  .ort { align-items: center; padding: 8px 12px; text-decoration: none; color: inherit; }
+  .ort .pin { font-size: 18px; line-height: 1; margin-top: 0; }
+  .ort > div:last-child { min-width: 0; }
+  .ort .name, .ort .adr { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ort .name { font-weight: 700; font-size: 15px; }
+  .ort .adr { font-size: 13px; color: var(--leise); }
+  .knoepfe { display: flex; gap: 8px; margin-top: 12px; }
+  .knopf {
+    flex: 1; text-align: center; text-decoration: none; font-weight: 700; font-size: 15px;
+    padding: 11px 10px; border-radius: 10px; background: var(--rot); color: var(--weiss);
+    border: none; font-family: inherit; cursor: pointer;
+  }
+  .knopf.hell { background: var(--weiss); color: var(--rot); border: 2px solid var(--rot); }
+
+  /* Letztes Ergebnis */
+  .letztes { display: flex; align-items: center; gap: 12px; padding: 4px 16px 14px; }
+  .letztes .text { flex: 1; font-size: 14px; }
+  .letztes .text b { font-size: 15px; }
+  .hg { display: grid; grid-template-columns: auto 1fr; gap: 1px 8px; align-items: baseline; }
+  .hg .lbl { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--leise); }
+  .hg .wir { font-weight: 800; color: var(--rot); }
+  .letztes .datum2 { font-size: 13px; color: var(--leise); margin-top: 3px; }
+
+  /* Tabelle */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { font-size: 11px; text-transform: uppercase; color: var(--leise); font-weight: 700; padding: 6px 4px; text-align: center; }
+  td { padding: 9px 4px; border-top: 1px solid var(--linie); text-align: center; font-variant-numeric: tabular-nums; }
+  th:first-child, td:first-child { padding-left: 14px; width: 30px; }
+  th:last-child, td:last-child { padding-right: 14px; }
+  td.mann, th.mann { text-align: left; }
+  td.mann { font-weight: 600; }
+  td.pkt { font-weight: 800; }
+  tr.wir td { background: var(--rot-hell); color: var(--rot-dunkel); }
+  tr.wir td.mann { font-weight: 800; }
+  table { table-layout: auto; }
+  th, td { white-space: nowrap; }
+  td.mann { white-space: normal; font-size: 13px; line-height: 1.25; }
+  th.k, td.k { width: 22px; padding-left: 2px; padding-right: 2px; }
+  td.k.s { color: var(--sieg); font-weight: 700; }
+  td.k.n { color: var(--rot); font-weight: 700; }
+  td.k.u { color: var(--remis); font-weight: 700; }
+  tr.wir td.k.s { color: var(--sieg); }
+  @media (max-width: 380px) { td, th { padding-left: 2px; padding-right: 2px; } td.mann { font-size: 12px; } }
+
+  /* Spiele-Liste */
+  .reiter { display: flex; gap: 6px; padding: 0 12px 10px; flex-wrap: wrap; }
+  .reiter button {
+    font: inherit; font-size: 14px; font-weight: 700; border-radius: 999px; padding: 7px 14px;
+    border: 2px solid var(--rot); background: var(--weiss); color: var(--rot); cursor: pointer;
+  }
+  .reiter button.an { background: var(--rot); color: var(--weiss); }
+  .reiter .rechts { margin-left: auto; background: var(--rot); border-color: var(--rot); color: var(--weiss); }
+  .reiter .rechts.an { background: var(--tinte); border-color: var(--tinte); color: var(--weiss); }
+  .spiel { border-top: 1px solid var(--linie); padding: 11px 16px; display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; }
+  .spiel .datum { font-size: 13px; color: var(--leise); }
+  .spiel .datum b { color: var(--tinte); }
+  .spiel .teams { font-size: 15px; grid-column: 1; }
+  .spiel .teams .wir { font-weight: 800; color: var(--rot); }
+  .spiel .halle { font-size: 13px; color: var(--leise); grid-column: 1; }
+  .spiel .halle a { color: var(--leise); }
+  .spiel .rechts { grid-column: 2; grid-row: 1 / span 3; align-self: center; text-align: right; }
+  .erg {
+    display: inline-block; min-width: 58px; text-align: center; font-weight: 800; font-size: 16px;
+    border-radius: 8px; padding: 5px 8px; background: #eef0f4; font-variant-numeric: tabular-nums;
+  }
+  .erg.s { background: var(--sieg-hell); color: var(--sieg); }
+  .erg.n { background: var(--rot-hell); color: var(--rot); }
+  .erg.u { background: var(--remis-hell); color: var(--remis); }
+  .leer { padding: 14px 16px 18px; color: var(--leise); font-size: 14px; }
+
+  footer { text-align: center; font-size: 13px; color: var(--leise); padding: 6px 16px 20px; }
+  footer a { color: var(--rot); }
+
+  .lade { padding: 30px 16px; text-align: center; color: var(--leise); }
+  .lade .kreis {
+    width: 30px; height: 30px; margin: 0 auto 10px; border-radius: 50%;
+    border: 4px solid var(--rot-hell); border-top-color: var(--rot); animation: dreh 0.9s linear infinite;
+  }
+  @keyframes dreh { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<header>
+  <div class="kopf">
+    <div class="wappen">MTV</div>
+    <div>
+      <h1>MTV Schwarmstedt</h1>
+      <div class="sub">männl. Jugend D · Regionsliga D Süd</div>
+    </div>
+    <button class="neu" id="neu" aria-label="Neu laden">↻ Neu</button>
+  </div>
+</header>
+
+<main id="app">
+  <div class="karte lade"><div class="kreis"></div>Lade aktuelle Daten von nuLiga …</div>
+</main>
+
+<footer>
+  Daten: <a id="quelle" href="#" target="_blank" rel="noopener">nuLiga HVNB (offizielle Seite)</a><br>
+  <a id="aktion" href="#" target="_blank" rel="noopener" style="color:var(--leise)">Trainer: Daten jetzt abrufen</a>
+</footer>
+
+<script>
+/* ---------- Einstellungen ---------- */
+const CONFIG = {
+  team: "MTV Schwarmstedt",
+  championship: "HRLS 26/27",
+  group: "489105",
+  basis: "https://hvnb-handball.liga.nu/cgi-bin/WebObjects/nuLigaHBDE.woa/wa/"
+};
+
+const URL_TABELLE = CONFIG.basis + "groupPage?championship=" + encodeURIComponent(CONFIG.championship) + "&group=" + CONFIG.group;
+const URL_SPIELPLAN = CONFIG.basis + "groupPage?displayTyp=vorrunde&displayDetail=meetings&championship=" + encodeURIComponent(CONFIG.championship) + "&group=" + CONFIG.group;
+document.getElementById("quelle").href = URL_TABELLE;
+
+/* Daten kommen aus daten.json – eine GitHub Action holt sie alle 30 Minuten von nuLiga */
+const URL_DATEN = "daten.json";
+const URL_AKTION = "https://github.com/semmikgs/public/actions/workflows/mtv.yml";
+
+/* ---------- kleine Helfer ---------- */
+const speicher = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const istWir = name => name && name.toLowerCase().includes(CONFIG.team.toLowerCase());
+const WOCHENTAG = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
+const WOCHENTAG_LANG = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
+
+function zeitpunkt(s) {
+  const [t, mo, j] = s.datum.split(".").map(Number);
+  const [h, mi] = s.zeit.split(":").map(Number);
+  return new Date(j, mo - 1, t, h, mi).getTime();
+}
+
+/* ---------- Anzeige ---------- */
+let ansicht = { reiter: "kommend", alle: false };
+let daten = null;
+
+function wertung(s) {
+  if (!s.erg) return "";
+  const [a, b] = s.erg.split(":").map(Number);
+  const wir = istWir(s.heim) ? a : b, die = istWir(s.heim) ? b : a;
+  return wir > die ? "s" : wir < die ? "n" : "u";
+}
+
+function hallenInfo(s) {
+  const h = (daten.hallen || {})[s.location];
+  const name = (h && h.name) || s.hallenTitel || ("Halle " + s.hallenNr);
+  const adresse = h ? h.adresse : "";
+  const maps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(adresse ? name + ", " + adresse : name);
+  return { name, adresse, maps };
+}
+
+function tageBis(ts) {
+  const heute = new Date(); heute.setHours(0, 0, 0, 0);
+  const d = new Date(ts); d.setHours(0, 0, 0, 0);
+  const n = Math.round((d - heute) / 86400000);
+  if (n === 0) return "Heute";
+  if (n === 1) return "Morgen";
+  return "in " + n + " Tagen";
+}
+
+function kurzHalle(name) {
+  /* "Schwarmstedt, Wilhelm-Röpke-Schule" -> "Wilhelm-Röpke-Schule"; Ort steht in der Adresse */
+  const teil = name.includes(",") ? name.split(",").slice(1).join(",").trim() : name;
+  return teil.replace(/^SH\b/, "Sporthalle").replace(/\bSH\b/, "Sporthalle") || name;
+}
+
+function heimGast(s) {
+  return '<div class="hg"><span class="lbl">Heim</span><span>' + teamHtml(s.heim) + '</span><span class="lbl">Gast</span><span>' + teamHtml(s.gast) + "</span></div>";
+}
+
+function teamHtml(name) {
+  return istWir(name) ? '<span class="wir">' + esc(name) + "</span>" : esc(name);
+}
+
+function ics(s) {
+  const pad = n => String(n).padStart(2, "0");
+  const f = d => d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + "T" + pad(d.getHours()) + pad(d.getMinutes()) + "00";
+  const start = new Date(s.zeitpunkt), ende = new Date(s.zeitpunkt + 90 * 60000);
+  const h = hallenInfo(s);
+  const text = [
+    "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//MTV mD//DE", "BEGIN:VEVENT",
+    "UID:mtv-md-" + s.nr + "-" + s.zeitpunkt + "@semmikgs",
+    "DTSTART:" + f(start), "DTEND:" + f(ende),
+    "SUMMARY:Handball mD: " + s.heim + " – " + s.gast,
+    "LOCATION:" + (h.name + (h.adresse ? ", " + h.adresse : "")).replace(/,/g, "\\,"),
+    "END:VEVENT", "END:VCALENDAR"
+  ].join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([text], { type: "text/calendar" }));
+  a.download = "MTV-mD-Spiel-" + s.nr + ".ics";
+  document.body.appendChild(a); a.click(); a.remove();
+}
+
+function zeichne(hinweis) {
+  const jetzt = Date.now();
+  const unsere = daten.spiele.filter(s => istWir(s.heim) || istWir(s.gast)).sort((a, b) => a.zeitpunkt - b.zeitpunkt);
+  const naechstes = unsere.find(s => !s.erg && s.zeitpunkt > jetzt - 3 * 3600000);
+  const letztes = [...unsere].reverse().find(s => s.erg);
+  let html = "";
+
+  if (hinweis) html += '<div class="status warn">' + esc(hinweis) + "</div>";
+
+  /* Nächstes Spiel */
+  if (naechstes) {
+    const d = new Date(naechstes.zeitpunkt);
+    const heim = istWir(naechstes.heim);
+    const h = hallenInfo(naechstes);
+    html += '<section class="karte naechstes"><h2>Nächstes Spiel</h2><div class="inhalt">' +
+      '<div class="wann"><span class="tag">' + WOCHENTAG[d.getDay()] + ", " + esc(naechstes.datum.slice(0, 6)) + '</span><span class="zeit">Anpfiff ' + esc(naechstes.zeit) + " Uhr</span></div>" +
+      '<div class="countdown">' + tageBis(naechstes.zeitpunkt) + ' · <span class="badge ' + (heim ? "" : "aus") + '">' + (heim ? "Heimspiel" : "Auswärts") + "</span></div>" +
+      '<div class="paarung">' + heimGast(naechstes) + "</div>" +
+      '<a class="ort" href="' + h.maps + '" target="_blank" rel="noopener"><div class="pin">📍</div><div><div class="name">' + esc(kurzHalle(h.name)) + "</div>" + (h.adresse ? '<div class="adr">' + esc(h.adresse) + "</div>" : "") + "</div></a>" +
+      '<div class="knoepfe"><a class="knopf" href="' + h.maps + '" target="_blank" rel="noopener">Route</a><button class="knopf hell" id="kal">In Kalender</button></div>' +
+      "</div></section>";
+  } else {
+    html += '<section class="karte"><h2>Nächstes Spiel</h2><div class="leer">Aktuell kein weiteres Spiel angesetzt.</div></section>';
+  }
+
+  /* Letztes Ergebnis */
+  if (letztes) {
+    const w = wertung(letztes);
+    html += '<section class="karte"><h2>Letztes Ergebnis</h2><div class="letztes"><div class="text">' + heimGast(letztes) + '<div class="datum2">' +
+      WOCHENTAG[new Date(letztes.zeitpunkt).getDay()] + ", " + esc(letztes.datum) + '</div></div><span class="erg ' + w + '">' + esc(letztes.erg) + "</span></div></section>";
+  }
+
+  /* Tabelle */
+  html += '<section class="karte"><h2>Tabelle</h2>';
+  if (daten.tabelle.length) {
+    html += '<table><thead><tr><th>#</th><th class="mann">Mannschaft</th><th>Sp</th><th class="k">S</th><th class="k">U</th><th class="k">N</th><th>Tore</th><th>+/-</th><th>Pkt</th></tr></thead><tbody>' +
+      daten.tabelle.map(z => '<tr class="' + (istWir(z.team) ? "wir" : "") + '"><td>' + z.rang + '</td><td class="mann">' + esc(z.team) + "</td><td>" + esc(z.spiele) +
+        '</td><td class="k ' + (+z.s ? "s" : "") + '">' + esc(z.s) + '</td><td class="k ' + (+z.u ? "u" : "") + '">' + esc(z.u) + '</td><td class="k ' + (+z.n ? "n" : "") + '">' + esc(z.n) + "</td><td>" + esc(z.tore) + "</td><td>" + esc(z.diff) + '</td><td class="pkt">' + esc(z.punkte) + "</td></tr>").join("") +
+      "</tbody></table>";
+  } else {
+    html += '<div class="leer">Tabelle konnte nicht gelesen werden.</div>';
+  }
+  html += "</section>";
+
+  /* Spiele */
+  const quelle = ansicht.alle ? [...daten.spiele].sort((a, b) => a.zeitpunkt - b.zeitpunkt) : unsere;
+  let liste = ansicht.reiter === "kommend" ? quelle.filter(s => !s.erg) : quelle.filter(s => s.erg).reverse();
+  html += '<section class="karte"><h2>Spiele</h2><div class="reiter">' +
+    '<button data-r="kommend" class="' + (ansicht.reiter === "kommend" ? "an" : "") + '">Kommend</button>' +
+    '<button data-r="ergebnisse" class="' + (ansicht.reiter === "ergebnisse" ? "an" : "") + '">Ergebnisse</button>' +
+    '<button data-alle class="rechts ' + (ansicht.alle ? "an" : "") + '">' + (ansicht.alle ? "Alle Spiele" : "Nur MTV") + "</button></div>";
+  if (!liste.length) {
+    html += '<div class="leer">' + (ansicht.reiter === "kommend" ? "Keine offenen Spiele." : "Noch keine Ergebnisse.") + "</div>";
+  } else {
+    html += liste.map(s => {
+      const d = new Date(s.zeitpunkt);
+      const h = hallenInfo(s);
+      const unser = istWir(s.heim) || istWir(s.gast);
+      const rechts = s.erg ? '<span class="erg ' + (unser ? wertung(s) : "") + '">' + esc(s.erg) + "</span>" : '<span class="badge ' + (istWir(s.heim) ? "" : "aus") + '">' + (unser ? (istWir(s.heim) ? "Heim" : "Auswärts") : "") + "</span>";
+      return '<div class="spiel"><div class="datum"><b>' + WOCHENTAG[d.getDay()] + ", " + esc(s.datum) + "</b> · Anpfiff " + esc(s.zeit) + " Uhr</div>" +
+        '<div class="rechts">' + (unser || s.erg ? rechts : "") + "</div>" +
+        '<div class="teams">' + heimGast(s) + "</div>" +
+        '<div class="halle">📍 <a href="' + h.maps + '" target="_blank" rel="noopener">' + esc(h.name) + "</a></div></div>";
+    }).join("");
+  }
+  html += "</section>";
+
+  html += '<div class="status">Letzte Änderung bei nuLiga: ' + new Date(daten.stand).toLocaleString("de-DE", { dateStyle: "short", timeStyle: "short" }) + " Uhr<br>wird alle 30 Minuten automatisch abgeglichen</div>";
+
+  const app = document.getElementById("app");
+  app.innerHTML = html;
+  app.querySelectorAll("[data-r]").forEach(b => b.onclick = () => { ansicht.reiter = b.dataset.r; zeichne(hinweis); });
+  const alle = app.querySelector("[data-alle]");
+  if (alle) alle.onclick = () => { ansicht.alle = !ansicht.alle; zeichne(hinweis); };
+  const kal = document.getElementById("kal");
+  if (kal && naechstes) kal.onclick = () => ics(naechstes);
+}
+
+async function laden() {
+  const knopf = document.getElementById("neu");
+  knopf.disabled = true; knopf.textContent = "…";
+  const gespeichert = speicher.get("mtv_daten");
+  try {
+    const r = await fetch(URL_DATEN + "?t=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const d = await r.json();
+    d.spiele.forEach(s => s.zeitpunkt = zeitpunkt(s));
+    daten = d;
+    speicher.set("mtv_daten", daten);
+    zeichne();
+  } catch (e) {
+    if (gespeichert) {
+      daten = gespeichert;
+      zeichne("Gerade keine Verbindung – angezeigt wird der zuletzt geladene Stand.");
+    } else {
+      document.getElementById("app").innerHTML =
+        '<section class="karte"><div class="leer">Die Daten konnten gerade nicht geladen werden (' + esc(e.message) + ').<br><br>' +
+        '<a class="knopf" style="display:block" href="' + URL_TABELLE + '" target="_blank" rel="noopener">Offizielle nuLiga-Seite öffnen</a></div></section>';
+    }
+  } finally {
+    knopf.disabled = false; knopf.textContent = "↻ Neu";
+  }
+}
+
+document.getElementById("aktion").href = URL_AKTION;
+document.getElementById("neu").onclick = laden;
+laden();
+</script>
+</body>
+</html>

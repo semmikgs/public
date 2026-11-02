@@ -1,0 +1,51 @@
+name: MTV-Daten von nuLiga holen
+on:
+  schedule:
+    # Zeiten in UTC, deckt Winter- und Sommerzeit ab; das genaue Fenster prüft der Schritt "Zeitfenster"
+    - cron: "7,37 8-19 * * 0,6"   # Sa/So
+    - cron: "7 10,11,16,17 * * 1-5" # Mo–Fr
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["scripts/mtv_scrape.py", ".github/workflows/mtv.yml"]
+permissions:
+  contents: write
+concurrency:
+  group: mtv-daten
+  cancel-in-progress: false
+jobs:
+  holen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Zeitfenster (Berlin) prüfen
+        id: fenster
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then echo "los=ja" >> $GITHUB_OUTPUT; exit 0; fi
+          H=$(TZ=Europe/Berlin date +%-H); D=$(TZ=Europe/Berlin date +%u)
+          # Sa/So 10–20 Uhr halbstündlich, sonst nur 12 und 18 Uhr
+          if { [ "$D" -ge 6 ] && [ "$H" -ge 10 ] && [ "$H" -lt 20 ]; } || [ "$H" = 12 ] || [ "$H" = 18 ]; then
+            echo "los=ja" >> $GITHUB_OUTPUT
+          else
+            echo "Außerhalb des Zeitfensters ($D, $H Uhr) – übersprungen"; echo "los=nein" >> $GITHUB_OUTPUT
+          fi
+      - uses: actions/checkout@v4
+        if: steps.fenster.outputs.los == 'ja'
+      - uses: actions/setup-python@v5
+        if: steps.fenster.outputs.los == 'ja'
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4
+        if: steps.fenster.outputs.los == 'ja'
+      - name: nuLiga auslesen
+        if: steps.fenster.outputs.los == 'ja'
+        run: python3 scripts/mtv_scrape.py
+      - name: Änderungen committen
+        if: steps.fenster.outputs.los == 'ja'
+        run: |
+          if git diff --quiet -- mtv/daten.json && [ -z "$(git status --porcelain mtv/daten.json)" ]; then echo "Keine Änderung"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add mtv/daten.json
+          git commit -m "MTV-Daten aktualisiert"
+          git pull --rebase origin main
+          git push

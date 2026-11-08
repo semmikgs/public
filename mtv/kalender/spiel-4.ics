@@ -25,10 +25,10 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:mtv-md-2627-spiel-4@semmikgs.github.io
-DTSTAMP:20261108T121806Z
+DTSTAMP:20261108T123938Z
 DTSTART;TZID=Europe/Berlin:20261108T124500
 DTEND;TZID=Europe/Berlin:20261108T141500
-SUMMARY:Handball mD: MTV Schwarmstedt – HSG Lohheide (16:10)
+SUMMARY:Handball mD: MTV Schwarmstedt – HSG Lohheide (23:14)
 LOCATION:Wilhelm-Röpke-Schule\, Am Schloonberg 9\, 29690 Schwarmstedt
 DESCRIPTION:Anpfiff 12:45 Uhr\nRegionsliga D Süd\, Spiel 4\nInfos: https://semmikgs.github.io/public/mtv/
 END:VEVENT

@@ -35,24 +35,24 @@
   },
   {
    "rang": 4,
-   "team": "MTV Soltau",
-   "spiele": "0",
-   "s": "0",
+   "team": "TV Jahn Schneverdingen gem. II",
+   "spiele": "2",
+   "s": "1",
    "u": "0",
-   "n": "0",
-   "tore": "0:0",
-   "diff": "0",
-   "punkte": "0:0"
+   "n": "1",
+   "tore": "34:30",
+   "diff": "+4",
+   "punkte": "2:2"
   },
   {
    "rang": 5,
-   "team": "TV Jahn Schneverdingen gem. II",
+   "team": "MTV Soltau",
    "spiele": "1",
    "s": "0",
    "u": "0",
    "n": "1",
-   "tore": "16:18",
-   "diff": "-2",
+   "tore": "12:18",
+   "diff": "-6",
    "punkte": "0:2"
   },
   {
@@ -143,7 +143,7 @@
    "location": "6376",
    "heim": "MTV Soltau",
    "gast": "TV Jahn Schneverdingen gem. II",
-   "erg": "8:16"
+   "erg": "12:18"
   },
   {
    "datum": "22.11.2026",
@@ -568,5 +568,5 @@
    "adresse": "Lutterweg, 29320 Hermannsburg"
   }
  },
- "stand": "2026-11-08T15:11:41+00:00"
+ "stand": "2026-11-08T15:39:33+00:00"
 }

@@ -2,6 +2,17 @@
  "tabelle": [
   {
    "rang": 1,
+   "team": "JSG Örtzetal",
+   "spiele": "2",
+   "s": "2",
+   "u": "0",
+   "n": "0",
+   "tore": "37:34",
+   "diff": "+3",
+   "punkte": "4:0"
+  },
+  {
+   "rang": 2,
    "team": "MTV Schwarmstedt",
    "spiele": "1",
    "s": "1",
@@ -12,7 +23,7 @@
    "punkte": "2:0"
   },
   {
-   "rang": 2,
+   "rang": 3,
    "team": "TSV Wietzendorf",
    "spiele": "1",
    "s": "1",
@@ -20,17 +31,6 @@
    "n": "0",
    "tore": "24:15",
    "diff": "+9",
-   "punkte": "2:0"
-  },
-  {
-   "rang": 3,
-   "team": "JSG Örtzetal",
-   "spiele": "1",
-   "s": "1",
-   "u": "0",
-   "n": "0",
-   "tore": "18:16",
-   "diff": "+2",
    "punkte": "2:0"
   },
   {
@@ -69,13 +69,13 @@
   {
    "rang": 7,
    "team": "TV Jahn Schneverdingen",
-   "spiele": "1",
+   "spiele": "2",
    "s": "0",
    "u": "0",
-   "n": "1",
-   "tore": "9:19",
-   "diff": "-10",
-   "punkte": "0:2"
+   "n": "2",
+   "tore": "27:38",
+   "diff": "-11",
+   "punkte": "0:4"
   }
  ],
  "spiele": [
@@ -121,7 +121,7 @@
    "location": "6779",
    "heim": "JSG Örtzetal",
    "gast": "TV Jahn Schneverdingen",
-   "erg": "17:15"
+   "erg": "19:18"
   },
   {
    "datum": "08.11.2026",
@@ -568,5 +568,5 @@
    "adresse": "Lutterweg, 29320 Hermannsburg"
   }
  },
- "stand": "2026-11-08T11:11:38+00:00"
+ "stand": "2026-11-08T11:39:02+00:00"
 }

@@ -25,7 +25,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:mtv-md-2627-spiel-2@semmikgs.github.io
-DTSTAMP:20261108T133912Z
+DTSTAMP:20261108T143905Z
 DTSTART;TZID=Europe/Berlin:20261101T143000
 DTEND;TZID=Europe/Berlin:20261101T160000
 SUMMARY:Handball mD: TV Jahn Schneverdingen – MTV Schwarmstedt (9:19)
@@ -34,7 +34,7 @@ DESCRIPTION:Anpfiff 14:30 Uhr\nRegionsliga D Süd\, Spiel 2\nInfos: https://semm
 END:VEVENT
 BEGIN:VEVENT
 UID:mtv-md-2627-spiel-4@semmikgs.github.io
-DTSTAMP:20261108T133912Z
+DTSTAMP:20261108T143905Z
 DTSTART;TZID=Europe/Berlin:20261108T124500
 DTEND;TZID=Europe/Berlin:20261108T141500
 SUMMARY:Handball mD: MTV Schwarmstedt – HSG Lohheide (30:17)
@@ -43,7 +43,7 @@ DESCRIPTION:Anpfiff 12:45 Uhr\nRegionsliga D Süd\, Spiel 4\nInfos: https://semm
 END:VEVENT
 BEGIN:VEVENT
 UID:mtv-md-2627-spiel-8@semmikgs.github.io
-DTSTAMP:20261108T133912Z
+DTSTAMP:20261108T143905Z
 DTSTART;TZID=Europe/Berlin:20261122T153000
 DTEND;TZID=Europe/Berlin:20261122T170000
 SUMMARY:Handball mD: TSV Wietzendorf – MTV Schwarmstedt
@@ -52,7 +52,7 @@ DESCRIPTION:Anpfiff 15:30 Uhr\nRegionsliga D Süd\, Spiel 8\nInfos: https://semm
 END:VEVENT
 BEGIN:VEVENT
 UID:mtv-md-2627-spiel-15@semmikgs.github.io
-DTSTAMP:20261108T133912Z
+DTSTAMP:20261108T143905Z
 DTSTART;TZID=Europe/Berlin:20261213T130000
 DTEND;TZID=Europe/Berlin:20261213T143000
 SUMMARY:Handball mD: MTV Schwarmstedt – JSG Örtzetal
@@ -61,7 +61,7 @@ DESCRIPTION:Anpfiff 13:00 Uhr\nRegionsliga D Süd\, Spiel 15\nInfos: https://sem
 END:VEVENT
 BEGIN:VEVENT
 UID:mtv-md-2627-spiel-18@semmikgs.github.io
-DTSTAMP:20261108T133912Z
+DTSTAMP:20261108T143905Z
 DTSTART;TZID=Europe/Berlin:20270124T114500
 DTEND;TZID=Europe/Berlin:20270124T131500
 SUMMARY:Handball mD: MTV Soltau – MTV Schwarmstedt
@@ -70,7 +70,7 @@ DESCRIPTION:Anpfiff 11:45 Uhr\nRegionsliga D Süd\, Spiel 18\nInfos: https://sem
 END:VEVENT
 BEGIN:VEVENT
 UID:mtv-md-2627-spiel-20@semmikgs.github.io
-DTSTAMP:20261108T133912Z
+DTSTAMP:20261108T143905Z
 DTSTART;TZID=Europe/Berlin:20270206T120000
 DTEND;TZID=Europe/Berlin:20270206T133000
 SUMMARY:Handball mD: MTV Schwarmstedt – TV Jahn Schneverdingen gem. II
@@ -79,7 +79,7 @@ DESCRIPTION:Anpfiff 12:00 Uhr\nRegionsliga D Süd\, Spiel 20\nInfos: https://sem
 END:VEVENT
 BEGIN:VEVENT
 UID:mtv-md-2627-spiel-23@semmikgs.github.io
-DTSTAMP:20261108T133912Z
+DTSTAMP:20261108T143905Z
 DTSTART;TZID=Europe/Berlin:20270213T161500
 DTEND;TZID=Europe/Berlin:20270213T174500
 SUMMARY:Handball mD: MTV Schwarmstedt – TV Jahn Schneverdingen
@@ -88,7 +88,7 @@ DESCRIPTION:Anpfiff 16:15 Uhr\nRegionsliga D Süd\, Spiel 23\nInfos: https://sem
 END:VEVENT
 BEGIN:VEVENT
 UID:mtv-md-2627-spiel-25@semmikgs.github.io
-DTSTAMP:20261108T133912Z
+DTSTAMP:20261108T143905Z
 DTSTART;TZID=Europe/Berlin:20270220T150000
 DTEND;TZID=Europe/Berlin:20270220T163000
 SUMMARY:Handball mD: HSG Lohheide – MTV Schwarmstedt
@@ -97,7 +97,7 @@ DESCRIPTION:Anpfiff 15:00 Uhr\nRegionsliga D Süd\, Spiel 25\nInfos: https://sem
 END:VEVENT
 BEGIN:VEVENT
 UID:mtv-md-2627-spiel-29@semmikgs.github.io
-DTSTAMP:20261108T133912Z
+DTSTAMP:20261108T143905Z
 DTSTART;TZID=Europe/Berlin:20270307T143000
 DTEND;TZID=Europe/Berlin:20270307T160000
 SUMMARY:Handball mD: MTV Schwarmstedt – TSV Wietzendorf
@@ -106,7 +106,7 @@ DESCRIPTION:Anpfiff 14:30 Uhr\nRegionsliga D Süd\, Spiel 29\nInfos: https://sem
 END:VEVENT
 BEGIN:VEVENT
 UID:mtv-md-2627-spiel-36@semmikgs.github.io
-DTSTAMP:20261108T133912Z
+DTSTAMP:20261108T143905Z
 DTSTART;TZID=Europe/Berlin:20270410T150000
 DTEND;TZID=Europe/Berlin:20270410T163000
 SUMMARY:Handball mD: JSG Örtzetal – MTV Schwarmstedt
@@ -115,7 +115,7 @@ DESCRIPTION:Anpfiff 15:00 Uhr\nRegionsliga D Süd\, Spiel 36\nInfos: https://sem
 END:VEVENT
 BEGIN:VEVENT
 UID:mtv-md-2627-spiel-39@semmikgs.github.io
-DTSTAMP:20261108T133912Z
+DTSTAMP:20261108T143905Z
 DTSTART;TZID=Europe/Berlin:20270418T131500
 DTEND;TZID=Europe/Berlin:20270418T144500
 SUMMARY:Handball mD: MTV Schwarmstedt – MTV Soltau
@@ -124,7 +124,7 @@ DESCRIPTION:Anpfiff 13:15 Uhr\nRegionsliga D Süd\, Spiel 39\nInfos: https://sem
 END:VEVENT
 BEGIN:VEVENT
 UID:mtv-md-2627-spiel-41@semmikgs.github.io
-DTSTAMP:20261108T133912Z
+DTSTAMP:20261108T143905Z
 DTSTART;TZID=Europe/Berlin:20270424T113000
 DTEND;TZID=Europe/Berlin:20270424T130000
 SUMMARY:Handball mD: TV Jahn Schneverdingen gem. II – MTV Schwarmstedt

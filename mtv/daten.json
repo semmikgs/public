@@ -2,6 +2,17 @@
  "tabelle": [
   {
    "rang": 1,
+   "team": "MTV Schwarmstedt",
+   "spiele": "2",
+   "s": "2",
+   "u": "0",
+   "n": "0",
+   "tore": "49:26",
+   "diff": "+23",
+   "punkte": "4:0"
+  },
+  {
+   "rang": 2,
    "team": "JSG Örtzetal",
    "spiele": "2",
    "s": "2",
@@ -10,17 +21,6 @@
    "tore": "37:34",
    "diff": "+3",
    "punkte": "4:0"
-  },
-  {
-   "rang": 2,
-   "team": "MTV Schwarmstedt",
-   "spiele": "1",
-   "s": "1",
-   "u": "0",
-   "n": "0",
-   "tore": "19:9",
-   "diff": "+10",
-   "punkte": "2:0"
   },
   {
    "rang": 3,
@@ -57,17 +57,6 @@
   },
   {
    "rang": 6,
-   "team": "HSG Lohheide",
-   "spiele": "1",
-   "s": "0",
-   "u": "0",
-   "n": "1",
-   "tore": "15:24",
-   "diff": "-9",
-   "punkte": "0:2"
-  },
-  {
-   "rang": 7,
    "team": "TV Jahn Schneverdingen",
    "spiele": "2",
    "s": "0",
@@ -75,6 +64,17 @@
    "n": "2",
    "tore": "27:38",
    "diff": "-11",
+   "punkte": "0:4"
+  },
+  {
+   "rang": 7,
+   "team": "HSG Lohheide",
+   "spiele": "2",
+   "s": "0",
+   "u": "0",
+   "n": "2",
+   "tore": "32:54",
+   "diff": "-22",
    "punkte": "0:4"
   }
  ],
@@ -132,7 +132,7 @@
    "location": "6374",
    "heim": "MTV Schwarmstedt",
    "gast": "HSG Lohheide",
-   "erg": "23:14"
+   "erg": "30:17"
   },
   {
    "datum": "08.11.2026",
@@ -568,5 +568,5 @@
    "adresse": "Lutterweg, 29320 Hermannsburg"
   }
  },
- "stand": "2026-11-08T12:39:38+00:00"
+ "stand": "2026-11-08T13:06:43+00:00"
 }

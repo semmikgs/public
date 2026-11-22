@@ -2,6 +2,17 @@
  "tabelle": [
   {
    "rang": 1,
+   "team": "MTV Schwarmstedt",
+   "spiele": "3",
+   "s": "3",
+   "u": "0",
+   "n": "0",
+   "tore": "75:50",
+   "diff": "+25",
+   "punkte": "6:0"
+  },
+  {
+   "rang": 2,
    "team": "JSG Örtzetal",
    "spiele": "3",
    "s": "3",
@@ -12,26 +23,15 @@
    "punkte": "6:0"
   },
   {
-   "rang": 2,
-   "team": "MTV Schwarmstedt",
-   "spiele": "2",
-   "s": "2",
-   "u": "0",
-   "n": "0",
-   "tore": "49:26",
-   "diff": "+23",
-   "punkte": "4:0"
-  },
-  {
    "rang": 3,
    "team": "TSV Wietzendorf",
-   "spiele": "1",
+   "spiele": "2",
    "s": "1",
    "u": "0",
-   "n": "0",
-   "tore": "24:15",
-   "diff": "+9",
-   "punkte": "2:0"
+   "n": "1",
+   "tore": "48:41",
+   "diff": "+7",
+   "punkte": "2:2"
   },
   {
    "rang": 4,
@@ -176,7 +176,7 @@
    "location": "6379",
    "heim": "TSV Wietzendorf",
    "gast": "MTV Schwarmstedt",
-   "erg": "11:17"
+   "erg": "24:26"
   },
   {
    "datum": "28.11.2026",
@@ -568,5 +568,5 @@
    "adresse": "Lutterweg, 29320 Hermannsburg"
   }
  },
- "stand": "2026-11-22T15:11:56+00:00"
+ "stand": "2026-11-22T15:38:43+00:00"
 }

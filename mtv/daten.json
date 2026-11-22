@@ -2,6 +2,17 @@
  "tabelle": [
   {
    "rang": 1,
+   "team": "JSG Örtzetal",
+   "spiele": "3",
+   "s": "3",
+   "u": "0",
+   "n": "0",
+   "tore": "56:51",
+   "diff": "+5",
+   "punkte": "6:0"
+  },
+  {
+   "rang": 2,
    "team": "MTV Schwarmstedt",
    "spiele": "2",
    "s": "2",
@@ -9,17 +20,6 @@
    "n": "0",
    "tore": "49:26",
    "diff": "+23",
-   "punkte": "4:0"
-  },
-  {
-   "rang": 2,
-   "team": "JSG Örtzetal",
-   "spiele": "2",
-   "s": "2",
-   "u": "0",
-   "n": "0",
-   "tore": "37:34",
-   "diff": "+3",
    "punkte": "4:0"
   },
   {
@@ -57,17 +57,6 @@
   },
   {
    "rang": 6,
-   "team": "HSG Lohheide",
-   "spiele": "2",
-   "s": "0",
-   "u": "0",
-   "n": "2",
-   "tore": "32:54",
-   "diff": "-22",
-   "punkte": "0:4"
-  },
-  {
-   "rang": 7,
    "team": "MTV Soltau",
    "spiele": "2",
    "s": "0",
@@ -76,6 +65,17 @@
    "tore": "25:47",
    "diff": "-22",
    "punkte": "0:4"
+  },
+  {
+   "rang": 7,
+   "team": "HSG Lohheide",
+   "spiele": "3",
+   "s": "0",
+   "u": "0",
+   "n": "3",
+   "tore": "49:73",
+   "diff": "-24",
+   "punkte": "0:6"
   }
  ],
  "spiele": [
@@ -165,7 +165,7 @@
    "location": "6365",
    "heim": "HSG Lohheide",
    "gast": "JSG Örtzetal",
-   "erg": "0:0"
+   "erg": "17:19"
   },
   {
    "datum": "22.11.2026",
@@ -176,7 +176,7 @@
    "location": "6379",
    "heim": "TSV Wietzendorf",
    "gast": "MTV Schwarmstedt",
-   "erg": "0:0"
+   "erg": "2:5"
   },
   {
    "datum": "28.11.2026",
@@ -568,5 +568,5 @@
    "adresse": "Lutterweg, 29320 Hermannsburg"
   }
  },
- "stand": "2026-11-22T13:38:52+00:00"
+ "stand": "2026-11-22T14:38:45+00:00"
 }

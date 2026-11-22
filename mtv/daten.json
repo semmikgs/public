@@ -46,34 +46,34 @@
   },
   {
    "rang": 5,
-   "team": "MTV Soltau",
-   "spiele": "1",
-   "s": "0",
+   "team": "TV Jahn Schneverdingen",
+   "spiele": "3",
+   "s": "1",
    "u": "0",
-   "n": "1",
-   "tore": "12:18",
-   "diff": "-6",
-   "punkte": "0:2"
+   "n": "2",
+   "tore": "56:51",
+   "diff": "+5",
+   "punkte": "2:4"
   },
   {
    "rang": 6,
-   "team": "TV Jahn Schneverdingen",
-   "spiele": "2",
-   "s": "0",
-   "u": "0",
-   "n": "2",
-   "tore": "27:38",
-   "diff": "-11",
-   "punkte": "0:4"
-  },
-  {
-   "rang": 7,
    "team": "HSG Lohheide",
    "spiele": "2",
    "s": "0",
    "u": "0",
    "n": "2",
    "tore": "32:54",
+   "diff": "-22",
+   "punkte": "0:4"
+  },
+  {
+   "rang": 7,
+   "team": "MTV Soltau",
+   "spiele": "2",
+   "s": "0",
+   "u": "0",
+   "n": "2",
+   "tore": "25:47",
    "diff": "-22",
    "punkte": "0:4"
   }
@@ -154,7 +154,7 @@
    "location": "6372",
    "heim": "TV Jahn Schneverdingen",
    "gast": "MTV Soltau",
-   "erg": "16:7"
+   "erg": "29:13"
   },
   {
    "datum": "22.11.2026",
@@ -568,5 +568,5 @@
    "adresse": "Lutterweg, 29320 Hermannsburg"
   }
  },
- "stand": "2026-11-22T12:39:01+00:00"
+ "stand": "2026-11-22T13:12:12+00:00"
 }

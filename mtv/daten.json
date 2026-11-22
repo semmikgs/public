@@ -176,7 +176,7 @@
    "location": "6379",
    "heim": "TSV Wietzendorf",
    "gast": "MTV Schwarmstedt",
-   "erg": "2:5"
+   "erg": "11:17"
   },
   {
    "datum": "28.11.2026",
@@ -568,5 +568,5 @@
    "adresse": "Lutterweg, 29320 Hermannsburg"
   }
  },
- "stand": "2026-11-22T14:38:45+00:00"
+ "stand": "2026-11-22T15:11:56+00:00"
 }

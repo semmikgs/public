@@ -154,7 +154,7 @@
    "location": "6372",
    "heim": "TV Jahn Schneverdingen",
    "gast": "MTV Soltau",
-   "erg": "0:0"
+   "erg": "11:5"
   },
   {
    "datum": "22.11.2026",
@@ -165,7 +165,7 @@
    "location": "6365",
    "heim": "HSG Lohheide",
    "gast": "JSG Örtzetal",
-   "erg": ""
+   "erg": "0:0"
   },
   {
    "datum": "22.11.2026",
@@ -568,5 +568,5 @@
    "adresse": "Lutterweg, 29320 Hermannsburg"
   }
  },
- "stand": "2026-11-22T11:11:35+00:00"
+ "stand": "2026-11-22T12:18:00+00:00"
 }

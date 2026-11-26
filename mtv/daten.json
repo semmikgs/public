@@ -180,6 +180,17 @@
   },
   {
    "datum": "28.11.2026",
+   "zeit": "15:00",
+   "nr": "12",
+   "hallenNr": "607109",
+   "hallenTitel": "",
+   "location": "6372",
+   "heim": "TV Jahn Schneverdingen gem. II",
+   "gast": "TV Jahn Schneverdingen",
+   "erg": ""
+  },
+  {
+   "datum": "28.11.2026",
    "zeit": "15:15",
    "nr": "10",
    "hallenNr": "607113",
@@ -187,17 +198,6 @@
    "location": "6376",
    "heim": "MTV Soltau",
    "gast": "HSG Lohheide",
-   "erg": ""
-  },
-  {
-   "datum": "28.11.2026",
-   "zeit": "15:45",
-   "nr": "12",
-   "hallenNr": "607109",
-   "hallenTitel": "",
-   "location": "6372",
-   "heim": "TV Jahn Schneverdingen gem. II",
-   "gast": "TV Jahn Schneverdingen",
    "erg": ""
   },
   {
@@ -568,5 +568,5 @@
    "adresse": "Lutterweg, 29320 Hermannsburg"
   }
  },
- "stand": "2026-11-22T15:38:43+00:00"
+ "stand": "2026-11-26T11:14:10+00:00"
 }

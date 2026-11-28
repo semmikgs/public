@@ -1,83 +1,5 @@
 {
- "tabelle": [
-  {
-   "rang": 1,
-   "team": "MTV Schwarmstedt",
-   "spiele": "3",
-   "s": "3",
-   "u": "0",
-   "n": "0",
-   "tore": "75:50",
-   "diff": "+25",
-   "punkte": "6:0"
-  },
-  {
-   "rang": 2,
-   "team": "JSG Örtzetal",
-   "spiele": "3",
-   "s": "3",
-   "u": "0",
-   "n": "0",
-   "tore": "56:51",
-   "diff": "+5",
-   "punkte": "6:0"
-  },
-  {
-   "rang": 3,
-   "team": "TSV Wietzendorf",
-   "spiele": "2",
-   "s": "1",
-   "u": "0",
-   "n": "1",
-   "tore": "48:41",
-   "diff": "+7",
-   "punkte": "2:2"
-  },
-  {
-   "rang": 4,
-   "team": "TV Jahn Schneverdingen gem. II",
-   "spiele": "2",
-   "s": "1",
-   "u": "0",
-   "n": "1",
-   "tore": "34:30",
-   "diff": "+4",
-   "punkte": "2:2"
-  },
-  {
-   "rang": 5,
-   "team": "TV Jahn Schneverdingen",
-   "spiele": "3",
-   "s": "1",
-   "u": "0",
-   "n": "2",
-   "tore": "56:51",
-   "diff": "+5",
-   "punkte": "2:4"
-  },
-  {
-   "rang": 6,
-   "team": "MTV Soltau",
-   "spiele": "2",
-   "s": "0",
-   "u": "0",
-   "n": "2",
-   "tore": "25:47",
-   "diff": "-22",
-   "punkte": "0:4"
-  },
-  {
-   "rang": 7,
-   "team": "HSG Lohheide",
-   "spiele": "3",
-   "s": "0",
-   "u": "0",
-   "n": "3",
-   "tore": "49:73",
-   "diff": "-24",
-   "punkte": "0:6"
-  }
- ],
+ "tabelle": [],
  "spiele": [
   {
    "datum": "01.11.2026",
@@ -187,7 +109,7 @@
    "location": "6372",
    "heim": "TV Jahn Schneverdingen gem. II",
    "gast": "TV Jahn Schneverdingen",
-   "erg": "2:3"
+   "erg": "5:11"
   },
   {
    "datum": "28.11.2026",
@@ -198,7 +120,7 @@
    "location": "6376",
    "heim": "MTV Soltau",
    "gast": "HSG Lohheide",
-   "erg": "0:0"
+   "erg": "6:11"
   },
   {
    "datum": "29.11.2026",
@@ -568,5 +490,5 @@
    "adresse": "Lutterweg, 29320 Hermannsburg"
   }
  },
- "stand": "2026-11-28T14:13:03+00:00"
+ "stand": "2026-11-28T14:38:45+00:00"
 }
